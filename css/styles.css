@@ -4,5 +4,13 @@
 	background-color:black;
 	opacity: .5; 
 	position: absolute;
+	display: flex;
 	display: none;
+}
+.lightBoxInner{
+	width:50%;
+	height: 50%;
+	margin:auto;
+	opacity:1;
+	background-color: white;
 }

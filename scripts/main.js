@@ -4,12 +4,22 @@ $(document).ready(function() {
     });
 
     $('.lightBoxOuter').click(function(e) {
+var inner =$('lightBoxInner')
+if (e.target.className !== 'lightBoxOuter'){
+return;
+}
+
         hideWhale(e)
     });
 
+
+  // $('#submitBtn').click(function(e) {
+  //      debugger;
+  //      e.preventDefault()
+  //   });
     $(window).resize(function(e) {
-    	   var image = $('#lightBoxImage');
-    	   centerImage(image);
+        var image = $('#lightBoxImage');
+        centerImage(image);
     });
 });
 
@@ -18,7 +28,9 @@ function showWhale(e) {
     var image = $('#lightBoxImage');
     image.attr('src', url);
     centerImage(image);
+
     $('.lightBoxOuter').show();
+$('.lightBoxOuter').css('display','flex');
 
 }
 
