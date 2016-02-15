@@ -4,24 +4,34 @@ $(document).ready(function() {
     });
 
     $('.lightBoxOuter').click(function(e) {
-var inner =$('lightBoxInner')
-if (e.target.className !== 'lightBoxOuter'){
-return;
-}
+        var inner = $('lightBoxInner')
+        if (e.target.className !== 'lightBoxOuter') {
+            return;
+        }
 
         hideWhale(e)
     });
 
 
-  // $('#submitBtn').click(function(e) {
-  //      debugger;
-  //      e.preventDefault()
-  //   });
+    $('#submitBtn').click(function(e) {
+        submitForm(e)
+    });
     $(window).resize(function(e) {
         var image = $('#lightBoxImage');
         centerImage(image);
     });
 });
+
+function submitForm(e) {
+    e.preventDefault()
+    var word1 = $('#wordOneInput').val()
+    var word2 = $('#wordTwoInput').val()
+
+    $('#wordOne').html(word1)
+    $('#wordTwo').html(word2)
+    console.log(word1)
+    hideWhale(e)
+}
 
 function showWhale(e) {
     var url = $('#whaleLink').data('img');
@@ -29,12 +39,18 @@ function showWhale(e) {
     image.attr('src', url);
     centerImage(image);
 
+    $('#wordOne').hide()
+    $('#wordTwo').hide()
+    $('#whaleLink').hide()
     $('.lightBoxOuter').show();
-$('.lightBoxOuter').css('display','flex');
+    $('.lightBoxOuter').css('display', 'flex');
 
 }
 
 function hideWhale(e) {
+    $('#wordOne').show()
+    $('#wordTwo').show()
+    $('#whaleLink').show()
     $('.lightBoxOuter').hide();
 }
 
